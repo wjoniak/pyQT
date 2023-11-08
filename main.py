@@ -47,14 +47,15 @@ class TableViewer(QMainWindow):
         tabWidget.addTab(calendarWidget, 'Kalendarz')
         tabWidget.addTab(tableWidget, 'plan dnia')
         self.layout_table = QVBoxLayout(tableWidget)
-        self.label = QLabel("data:")
-        self.layout_table.addWidget(self.label)
+
 
         tabWidget.addTab(formWidget, 'trening')
         self.layout_trening = QVBoxLayout(formWidget)
 
         layout = QVBoxLayout()
+
         layout.addWidget(tabWidget)
+
 
         # Ustawienie kolumn w tabeli
         tableWidget.setColumnCount(7)  # Dodaliśmy dwie kolumny na przyciski
@@ -126,9 +127,6 @@ class TableViewer(QMainWindow):
         self.centralWidget().findChild(QTabWidget).setCurrentIndex(2)  # Przełączamy na nową kartę
 
     def onButtonClick3(self, row):
-        label = QLabel(f'Record: {row}')
-
-        self.layout_trening.addWidget(label)
         tabWidget = self.centralWidget().findChild(QTabWidget)
         tabWidget.setCurrentIndex(2)
 
